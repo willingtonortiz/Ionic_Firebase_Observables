@@ -1,0 +1,31 @@
+<ion-header>
+	<ion-navbar> <ion-title>Usuario Administrador</ion-title> </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-item>
+		<ion-label>Id</ion-label>
+		<ion-input [(ngModel)]="user.id" type="Text"></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label>Nombre</ion-label>
+		<ion-input [(ngModel)]="user.name" type="Text"></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label>Rango</ion-label>
+		<ion-input [(ngModel)]="user.rank" type="Text"></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label>Dni</ion-label>
+		<ion-input [(ngModel)]="user.dni" type="Text"></ion-input>
+	</ion-item>
+
+	<p>{{ user | json }}</p>
+
+	<button ion-button (click)="addUser()">Agregar usuario</button>
+	<button ion-button (click)="deleteUser()">Borrar usuario</button>
+	<button ion-button (click)="editUser()">Editar usuario</button>
+</ion-content>
