@@ -13,7 +13,7 @@ export class UserDaoProvider {
 	// Observable que se usará en la aplicación
 	private users: Observable<Array<User>>;
 
-	// Collección de objetos desde la cuál se obtendrá el observable
+	// Collección de objetosS desde la cuál se obtendrá el observable
 	private collection: AngularFirestoreCollection<User>;
 
 	constructor(private firebase: AngularFirestore) {
@@ -33,7 +33,7 @@ export class UserDaoProvider {
 					const data = doc.payload.doc.data() as User;
 					return { id, ...data };
 				})
-			)
+			),
 		);
 	}
 
@@ -73,11 +73,13 @@ export class UserDaoProvider {
 	public createUser(item: User): Promise<void> {
 		const id: string = this.firebase.createId();
 
+		console.log(id);
 		return this.firebase.doc(`Users/${id}`).set({
 			name: item.name,
 			dni: item.dni,
 			rank: item.rank
 		});
+		// return new Promise<void>((resolve, reject)=>{});
 	}
 
 	public updateUser(item: User) {

@@ -18,6 +18,18 @@ export class HomePage {
 		private userDao: UserDaoProvider
 	) {
 		this.usersObservable = this.userDao.getUsersWithIdObservable();
+		this.usersObservable.subscribe({
+			next: (data: Array<User>) => {
+				data.forEach((user) => { console.log(user) })
+			}
+		});
+
+
+		let arr: number[] = [1, 2, 3, 4];
+
+		let otroArreglo = arr.map((data) => { return "hola" });
+		console.log(arr);
+		console.log(otroArreglo);
 	}
 
 	ngOnDestroy(): void { }
